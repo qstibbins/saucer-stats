@@ -26,7 +26,7 @@ CREATE TABLE "sightings_2024" (
     "state_province" VARCHAR(100)   NULL,
     "country" VARCHAR(100)   NOT NULL,
     "ufo_shape" VARCHAR(50)   NOT NULL,
-    "report_summary" TEXT   NOT NULL,
+    "report_summary" TEXT   NULL,
     "reported_datetime" TIMESTAMP   NOT NULL,
     "media" VARCHAR(255)   NOT NULL,
     "explanation" TEXT   NULL,
