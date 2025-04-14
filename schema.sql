@@ -5,13 +5,13 @@
 CREATE TABLE "sightings_2025" (
     "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
-    "sighting_datetime" DATETIME   NOT NULL,
+    "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
     "country" VARCHAR(100)   NOT NULL,
     "ufo_shape" VARCHAR(50)   NOT NULL,
     "report_summary" TEXT   NOT NULL,
-    "reported_datetime" DATETIME   NOT NULL,
+    "reported_datetime" TIMESTAMP   NOT NULL,
     "media" VARCHAR(255)   NOT NULL,
     "explanation" TEXT   NOT NULL,
     CONSTRAINT "pk_sightings_2025" PRIMARY KEY (
@@ -25,13 +25,13 @@ CREATE TABLE "sightings_2025" (
 CREATE TABLE "sightings_2024" (
     "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
-    "sighting_dateTime" DATETIME   NOT NULL,
+    "sighting_dateTime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
     "country" VARCHAR(100)   NOT NULL,
     "ufo_shape" VARCHAR(50)   NOT NULL,
     "report_summary" TEXT   NOT NULL,
-    "reported_datetime" DATETIME   NOT NULL,
+    "reported_datetime" TIMESTAMP   NOT NULL,
     "media" VARCHAR(255)   NOT NULL,
     "explanation" TEXT   NOT NULL,
     CONSTRAINT "pk_sightings_2024" PRIMARY KEY (
@@ -45,7 +45,7 @@ CREATE TABLE "sightings_2024" (
 CREATE TABLE "small_dataset" (
     "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
-    "sighting_dateTime" DATETIME   NOT NULL,
+    "sighting_dateTime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
     "country" VARCHAR(100)   NOT NULL,
