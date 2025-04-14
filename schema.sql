@@ -75,9 +75,12 @@ CREATE TABLE "reports_by_month" (
     )
 );
 
-ALTER TABLE "sightings_2024" ADD CONSTRAINT "fk_sightings_2024_id_report_link" FOREIGN KEY("id", "report_link")
-REFERENCES "sightings_2025" ("id", "report_link");
+ALTER TABLE "sightings_2024" ADD CONSTRAINT "fk_sightings_2024_id" FOREIGN KEY("id")
+REFERENCES "sightings_2025" ("id");
 
-ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_id_report_link" FOREIGN KEY("id", "report_link")
-REFERENCES "sightings_2024" ("id", "report_link");
+ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_id" FOREIGN KEY("id")
+REFERENCES "reports_by_month" ("id");
+
+ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_report_link" FOREIGN KEY("report_link")
+REFERENCES "sightings_2024" ("report_link");
 
