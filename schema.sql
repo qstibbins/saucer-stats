@@ -58,6 +58,3 @@ CREATE TABLE "reports_by_month" (
     "count" INT   NOT NULL
 );
 
-ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_report_link" FOREIGN KEY("report_link")
-REFERENCES "sightings_2024" ("report_link");
-
