@@ -81,6 +81,3 @@ REFERENCES "sightings_2025" ("id", "report_link");
 ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_id_report_link" FOREIGN KEY("id", "report_link")
 REFERENCES "sightings_2024" ("id", "report_link");
 
-ALTER TABLE "reports_by_month" ADD CONSTRAINT "fk_reports_by_month_id" FOREIGN KEY("id")
-REFERENCES "sightings_2025" ("id");
-
