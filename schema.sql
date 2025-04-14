@@ -3,7 +3,7 @@
 
 
 CREATE TABLE "sightings_2025" (
-    "id" SERIAL   NOT NULL,
+    "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
     "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
