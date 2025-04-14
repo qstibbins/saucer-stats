@@ -3,7 +3,7 @@
 
 
 CREATE TABLE "sightings_2025" (
-    "id" INT   NOT NULL,
+    "id" SERIAL   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
     "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE "sightings_2025" (
 CREATE TABLE "sightings_2024" (
     "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
-    "sighting_dateTime" TIMESTAMP   NOT NULL,
+    "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
     "country" VARCHAR(100)   NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE "sightings_2024" (
 CREATE TABLE "small_dataset" (
     "id" INT   NOT NULL,
     "report_link" VARCHAR(255)   NOT NULL,
-    "sighting_dateTime" TIMESTAMP   NOT NULL,
+    "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
     "country" VARCHAR(100)   NOT NULL,
@@ -75,12 +75,12 @@ CREATE TABLE "reports_by_month" (
     )
 );
 
-ALTER TABLE "sightings_2024" ADD CONSTRAINT "fk_sightings_2024_id_report_link_sighting_dateTime_city_state_province_country_ufo_shape_report_summary_reported_datetime_media_explanation" FOREIGN KEY("id", "report_link", "sighting_dateTime", "city", "state_province", "country", "ufo_shape", "report_summary", "reported_datetime", "media", "explanation")
-REFERENCES "sightings_2025" ("id", "report_link", "sighting_datetime", "city", "state_province", "country", "ufo_shape", "report_summary", "reported_datetime", "media", "explanation");
+ALTER TABLE "sightings_2024" ADD CONSTRAINT "fk_sightings_2024_id_report_link" FOREIGN KEY("id", "report_link")
+REFERENCES "sightings_2025" ("id", "report_link");
 
-ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_id_report_link_sighting_dateTime_city_state_province_country_ufo_shape_report_summary_media_explanation" FOREIGN KEY("id", "report_link", "sighting_dateTime", "city", "state_province", "country", "ufo_shape", "report_summary", "media", "explanation")
-REFERENCES "sightings_2024" ("id", "report_link", "sighting_dateTime", "city", "state_province", "country", "ufo_shape", "report_summary", "media", "explanation");
+ALTER TABLE "small_dataset" ADD CONSTRAINT "fk_small_dataset_id_report_link" FOREIGN KEY("id", "report_link")
+REFERENCES "sightings_2024" ("id", "report_link");
 
 ALTER TABLE "reports_by_month" ADD CONSTRAINT "fk_reports_by_month_id" FOREIGN KEY("id")
-REFERENCES "small_dataset" ("id");
+REFERENCES "sightings_2025" ("id");
 
