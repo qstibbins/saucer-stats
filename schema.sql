@@ -3,7 +3,7 @@
 
 
 CREATE TABLE "sightings_2025" (
-    "report_link" TEXTUNIQUE   NOT NULL,
+    "report_link" TEXT   NOT NULL,
     "sighting_datetime" TIMESTAMP   NOT NULL,
     "city" VARCHAR(100)   NOT NULL,
     "state_province" VARCHAR(100)   NOT NULL,
@@ -12,7 +12,11 @@ CREATE TABLE "sightings_2025" (
     "report_summary" TEXT   NOT NULL,
     "reported_datetime" TIMESTAMP   NOT NULL,
     "media" VARCHAR(255)   NOT NULL,
-    "explanation" TEXT   NOT NULL
+    "explanation" TEXT   NOT NULL,
+
+    CONSTRAINT "uc_sightings_2025_report_link" UNIQUE (
+        "report_link"
+    )
 );
 
 CREATE TABLE "sightings_2024" (
