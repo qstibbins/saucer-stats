@@ -60,7 +60,7 @@ L.control.layers(baseMaps, null,{
 //UFO shapes
 let shapes = ['changing', 'light', 'orb', 'formation', 'circle', 'diamond', 'egg', 'oval', 'other',
   'disk', 'triangle', 'cigar', 'fireball', 'chevron', 'cylinder', 'star', 'sphere', 'unknown', 
-  'cube', 'rectangle']
+  'cube', 'rectangle'];
 
 function getShapeIcon(shape) {
   let shapeLower = shape.toLowerCase(); 
@@ -70,22 +70,22 @@ function getShapeIcon(shape) {
   else if (shapeLower === 'light') emoji = '✨';
   else if (shapeLower === 'orb') emoji = '🔮';
   else if (shapeLower === 'formation') emoji = '🧿';
-  else if (shapeLower === 'circle') emoji = '⭕️';
+  else if (shapeLower === 'circle') emoji = '💫';
   else if (shapeLower === 'diamond') emoji = '💎';
   else if (shapeLower === 'egg') emoji = '🥚';
-  else if (shapeLower === 'oval') emoji = '🥚';
-  else if (shapeLower === 'other') emoji = '❔';
+  else if (shapeLower === 'oval') emoji = '🪐';
+  else if (shapeLower === 'other') emoji = '👽';
   else if (shapeLower === 'disk') emoji = '🛸';
   else if (shapeLower === 'triangle') emoji = '🔺';
   else if (shapeLower === 'cigar') emoji = '🚬';
   else if (shapeLower === 'fireball') emoji = '🔥';
-  else if (shapeLower === 'chevron') emoji = '🔷';
+  else if (shapeLower === 'chevron') emoji = '👾';
   else if (shapeLower === 'cylinder') emoji = '🧪';
   else if (shapeLower === 'star') emoji = '🌟';
-  else if (shapeLower === 'sphere') emoji = '🟢';
+  else if (shapeLower === 'sphere') emoji = '🌎';
   else if (shapeLower === 'unknown') emoji = '👻';
   else if (shapeLower === 'cube') emoji = '🧊';
-  else if (shapeLower === 'rectangle') emoji = '🟩';
+  else if (shapeLower === 'rectangle') emoji = '🌌';
 
   return L.divIcon({
     className: 'custom-icon', 
@@ -96,10 +96,19 @@ function getShapeIcon(shape) {
 }
 
 // Marker logic
-const allMarkers = [];
+let allMarkers = [];
 let currentShape = "all";
 
 const shapeSelect = document.getElementById("shapeFilter");
+shapeSelect.innerHTML = "";
+
+// Add all shapes as the first option
+let allOption = document.createElement('option');
+allOption.value = "all";
+allOption.textContent = "All Shapes";
+shapeSelect.appendChild(allOption);
+
+// Specific shape options
 shapes.forEach(shape => {
   const option = document.createElement("option");
   option.value = shape;
@@ -107,6 +116,11 @@ shapes.forEach(shape => {
   shapeSelect.appendChild(option);
 });
 
+// Set default to all shapes
+shapeSelect.value = "all"; 
+currentShape = "all";
+
+// Filter change event
 shapeSelect.addEventListener("change", () => {
   currentShape = shapeSelect.value;
   updateMarkers();
@@ -150,12 +164,29 @@ Papa.parse('https://raw.githubusercontent.com/qstibbins/saucer-stats/refs/heads/
           `;
 
           marker.bindPopup(popupContent);
+
           allMarkers.push({marker, shape:shapeLower});
 
           // Add marker to the map
-          //marker.addTo(myMap); 
+          marker.addTo(myMap); 
         }
       });
       updateMarkers();
     },
   });
+
+  // Add a legend
+  let legend = L.control({position: 'bottomright'});
+  
+  legend.onAdd = function () {
+    let div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML += "<h4>UFO Shapes</h4>";
+
+    shapes.forEach(shape => {
+      let icon = getShapeIcon(shape); 
+      let emoji = icon.options.html.match(/>(.*?)</)[1];
+      div.innerHTML+= `<div style="font-size:18px;">${emoji} ${shape.charAt(0).toUpperCase() + shape.slice(1)}</div>`;
+    });
+    return div;
+  };
+  legend.addTo(myMap); 
