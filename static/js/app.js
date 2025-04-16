@@ -137,7 +137,7 @@ function updateMarkers() {
 }
 
 // Load the CSV file using PapaParse
-Papa.parse('https://raw.githubusercontent.com/qstibbins/saucer-stats/refs/heads/main/data/small_dataset_with_coords.csv', {
+Papa.parse('data/small_dataset_with_coords.csv', {
   download: true,
   header: true,
   complete: function(results) {
@@ -188,7 +188,7 @@ Papa.parse('https://raw.githubusercontent.com/qstibbins/saucer-stats/refs/heads/
     shapes.forEach(shape => {
       let icon = getShapeIcon(shape); 
       let emoji = icon.options.html.match(/>(.*?)</)[1];
-      div.innerHTML+= `<div style="font-size:18px;">${emoji} ${shape.charAt(0).toUpperCase() + shape.slice(1)}</div>`;
+      div.innerHTML+= `<div style="font-size:14px;">${emoji} ${shape.charAt(0).toUpperCase() + shape.slice(1)}</div>`;
     });
     return div;
   };
