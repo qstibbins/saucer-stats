@@ -21,3 +21,9 @@ The data used was sourced from: https://nuforc.org/subndx/?id=all
 
     * References for any code used that is not your own
 Code for the title font was sourced from: https://fonts.google.com/specimen/Bytesized?preview.text=HELLO%20EARTHLINGS 
+
+GeoPy API documentation: 
+https://geopy.readthedocs.io/en/latest/#geopy.exc.GeocoderTimedOut 
+
+Nominatim API: 
+https://nominatim.org/release-docs/develop/api/Search/#examples 
