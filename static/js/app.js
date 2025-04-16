@@ -153,6 +153,9 @@ Papa.parse('https://raw.githubusercontent.com/qstibbins/saucer-stats/refs/heads/
       
 
           // Create a popup with the detailed information
+          let explanation = row["Explanation"] && row["Explanation"].trim() !== ""
+          ? row["Explanation"] 
+          : "No explanation available";
           const popupContent = `
             <strong><a href="${row["Report Link"]}" target="_blank">Report Link</a></strong><br>
             <strong>Sighting Date:</strong> ${row["Sighting DateTime"]}<br>
@@ -160,7 +163,7 @@ Papa.parse('https://raw.githubusercontent.com/qstibbins/saucer-stats/refs/heads/
             <strong>UFO Shape:</strong> ${ufoShape}<br>
             <strong>Summary:</strong> ${row["Report Summary"]}<br>
             <strong>Media:</strong> ${row["Media"]}<br>
-            <strong>Explanation:</strong> ${row["Explanation"]}
+            <strong>Explanation: </strong> ${explanation}
           `;
 
           marker.bindPopup(popupContent);
