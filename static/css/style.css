@@ -60,6 +60,11 @@ html {
   text-align: center;
 }
 
+.card-body h6 {
+  text-align: center;
+}
+
+
 .card-primary {
   color: #fff
 }
