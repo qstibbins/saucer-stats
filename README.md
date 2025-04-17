@@ -17,3 +17,7 @@ The data used was sourced from: https://nuforc.org/subndx/?id=all
 - Code for the title font was sourced from: https://fonts.google.com/specimen/Bytesized?preview.text=HELLO%20EARTHLINGS 
 - GeoPy API documentation: https://geopy.readthedocs.io/en/latest/#geopy.exc.GeocoderTimedOut
 - Nominatim API: https://nominatim.org/release-docs/develop/api/Search/#examples 
+
+###  Libraries used that were not shown in class: GeoPy and Nominatim
+
+### To view our GitHub page for this project, go here: https://qstibbins.github.io/saucer-stats/
