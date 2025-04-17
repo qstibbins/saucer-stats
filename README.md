@@ -1,4 +1,4 @@
-## Hello Earthling!
+## Hello Earthling! 👽
 
 This project is meant to showcase the number and type of reported incidents regarding Unidentifiable Aerial Phenomena (UAPs). In the past, these were commonly referred to as UFOs or Unidentified Flying Objects. The goal was to understand the frequency of reports by location and trends in data over time. The analysis generated discussion and theory on potential socio-economic causes behind the numbers, particularly when reporting spikes correlated to larger world events. The presence of more reports in certain parts of the world than others can also suggest cultural and environmental causes. The datasets go as far back as the 16th century! There are year-over-year and month-over month views as well as an interactive map showing the last 100 reports in the 2025 data to understand more recent reports. 
 
